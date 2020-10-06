@@ -1,0 +1,50 @@
+<h3>Add exam</h3>
+<!--
+  ngSubmit is the event and we are hooking our addUser method to
+   this event so that on submit addUser method will get executed
+   
+   myform is a template variable, it contains formgroup 
+   and we are passing this to our method so as to process it at code(ts) side  
+-->
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addExam(myform)">
+
+<div class="form-group">
+    <label>Exam name</label>
+    <!--
+        ngModel creates formcontrol at code side,
+         without mentioning ngModel, angular has no knowledge of this textfield -->
+    <input type="text" name="examName" required minlength="2" ngModel #examNameCtrl=ngModel class="form-control" >    
+</div>
+
+<div *ngIf="examNameCtrl.errors!=null && examNameCtrl.errors.required" class="error">
+ Exam name is required
+</div>
+
+
+<div *ngIf="examNameCtrl.errors!=null && examNameCtrl.errors.minlength" class="error">
+    minlength is 2
+   </div>
+
+<div class="form-group">
+    <label>Minutes</label>
+    <input type="number" name="minutes" ngModel #minutesCtrl=ngModel required class="form-control" >    
+</div>
+
+
+<div *ngIf="minutesCtrl.errors!=null && minutesCtrl.errors.required" class="error">
+    Minutes is required
+</div>
+
+
+
+
+<input type="submit" value="Submit" class="btn btn-primary">    
+</form>
+<br>
+
+<div *ngIf="exam!==undefined">
+ <h3>Added Exam </h3>   
+ {{exam.examId}}
+{{exam.examName}}
+{{exam.minutes}}
+</div>

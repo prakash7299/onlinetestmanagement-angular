@@ -1,0 +1,39 @@
+<h3>Assigned List</h3>
+<table border="1">
+
+<tr>
+  <th>Id</th>
+  <th>Status</th>
+ <th>Date Of Exam</th>
+ <th>User Id</th>
+ <th>Exam Id</th> 
+</tr>  
+<tr *ngFor="let assignexamtouser of users;let i=index" >
+
+  <td>
+    {{assignexamtouser.id}}
+  </td>
+
+  <td>
+ {{assignexamtouser.status }} 
+</td>
+
+<td>
+  {{assignexamtouser.dateOfExam}}
+
+</td>
+
+<td>
+  {{assignexamtouser.userId}}
+    </td>
+    <td>
+        {{assignexamtouser.examId}}
+          </td>
+
+  <td>
+    <button (click)="removeAssigned(assignexamtouser.id)">Remove User</button>
+  
+  </td>  
+
+  </tr>
+</table>

@@ -1,0 +1,72 @@
+<h3>Assign Exam</h3>
+<!--
+  ngSubmit is the event and we are hooking our addUser method to
+   this event so that on submit addUser method will get executed
+   
+   myform is a template variable, it contains formgroup 
+   and we are passing this to our method so as to process it at code(ts) side  
+-->
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addAssignExam(myform)">
+
+<div class="form-group">
+    <label>Status</label>
+    <!--
+        ngModel creates formcontrol at code side,
+         without mentioning ngModel, angular has no knowledge of this textfield -->
+    <input type="text" name="status" required minlength="2" ngModel #statusCtrl=ngModel class="form-control" >    
+</div>
+
+<div *ngIf="statusCtrl.errors!=null && statusCtrl.errors.required" class="error">
+ status is required
+</div>
+
+
+<div *ngIf="statusCtrl.errors!=null && statusCtrl.errors.minlength" class="error">
+    minlength is 2
+   </div>
+
+<div class="form-group">
+    <label>Date Of Exam</label>
+    <input type="date" name="dateOfExam" ngModel #dateOfExamCtrl=ngModel required class="form-control" >    
+</div>
+
+
+<div *ngIf="dateOfExamCtrl.errors!=null && dateOfExamCtrl.errors.required" class="error">
+    Date of Exam is required
+</div>
+
+<div class="form-group">
+    <label>User Id</label>
+    <input type="number" name="userId" ngModel #userIdCtrl=ngModel required class="form-control" >    
+</div>
+
+
+<div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.required" class="error">
+    userId is required
+</div>
+
+<div class="form-group">
+    <label>Exam Id</label>
+    <input type="number" name="examId" ngModel #examIdCtrl=ngModel required class="form-control" >    
+</div>
+
+
+<div *ngIf="examIdCtrl.errors!=null && examIdCtrl.errors.required" class="error">
+    examId is required
+</div>
+
+
+
+
+<input type="submit" value="Submit" class="btn btn-primary">    
+</form>
+<br>
+
+<div *ngIf="assignexamtouser!==undefined">
+ <h3>Assign Exam </h3>   
+ {{assignexamtouser.id}}
+{{assignexamtouser.status}}
+{{assignexamtouser.dateOfExam}}
+{{assignexamtouser.userId}}
+{{assignexamtouser.examId}}
+</div>

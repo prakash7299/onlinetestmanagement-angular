@@ -1,0 +1,20 @@
+<h3>Exam details</h3>
+<form #idform=ngForm (ngSubmit)=findUser(idform) >
+
+  <div class="form-group" style="background-color: lightsteelblue;">
+  <label>Exam Id</label>
+  <input type="number" name="examId"   ngModel class="form-control">
+</div>
+  <input type="submit" value="Search" class="btn btn-success">
+</form>
+<br>
+
+
+<div *ngIf="exam!==undefined" style="background-color: linen;">
+  
+  Id is {{exam.examId}} <br>
+  Exam Name is {{exam.examName | uppercase }} <br>
+Duration is {{exam.minutes}}<br>
+
+  
+</div>

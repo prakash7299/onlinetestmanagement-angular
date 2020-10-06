@@ -1,0 +1,21 @@
+<h3>Assigned Exam details</h3>
+<form #idform=ngForm (ngSubmit)=findUser(idform) >
+
+  <div class="form-group">
+  <label>Assigned Id</label>
+  <input type="number" name="id"   ngModel class="form-control">
+</div>
+  <input type="submit" value="Search" class="btn btn-success">
+</form>
+<br>
+
+
+<div *ngIf="assignexamtouser!==undefined" style="background-color: cornflowerblue;">
+  
+  Id is {{assignexamtouser.id}} <br>
+  Exam Name is {{assignexamtouser.status | uppercase }} <br>
+Duration is {{assignexamtouser.dateOfExam}}<br>
+User Id is {{assignexamtouser.userId}}<br>
+Exam Id is {{assignexamtouser.examId}}<br>
+  
+</div>
